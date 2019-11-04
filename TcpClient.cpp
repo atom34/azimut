@@ -249,9 +249,9 @@ void TcpClient::slotConnected()
 void TcpClient::slotDisplayConnectionState(QAbstractSocket::SocketState state)
 {
     switch (state) {
-    case QAbstractSocket::UnconnectedState: { m_pProgressBar->setValue(0); break; }
-    case QAbstractSocket::HostLookupState: { m_pProgressBar->setValue(m_nProgressBarMax/4); break; }
-    case QAbstractSocket::ConnectingState: { m_pProgressBar->setValue(m_nProgressBarMax/2); break; }
+    case QAbstractSocket::UnconnectedState: m_pProgressBar->setValue(0); break;
+    case QAbstractSocket::HostLookupState: m_pProgressBar->setValue(m_nProgressBarMax/4); break;
+    case QAbstractSocket::ConnectingState: m_pProgressBar->setValue(m_nProgressBarMax/2); break;
     case QAbstractSocket::ConnectedState:
     {
         for(int i = 0; i < m_nProgressBarMax; ++i)
@@ -261,9 +261,9 @@ void TcpClient::slotDisplayConnectionState(QAbstractSocket::SocketState state)
         }
         break;
     }
-    case QAbstractSocket::BoundState: { m_pProgressBar->setValue(m_nProgressBarMax/3); break; }
-    case QAbstractSocket::ClosingState: { m_pProgressBar->setValue(0); break; }
-    case QAbstractSocket::ListeningState: { m_pProgressBar->setValue(m_nProgressBarMax/5); break; }
+    case QAbstractSocket::BoundState: m_pProgressBar->setValue(m_nProgressBarMax/3); break;
+    case QAbstractSocket::ClosingState: m_pProgressBar->setValue(0); break;
+    case QAbstractSocket::ListeningState: m_pProgressBar->setValue(m_nProgressBarMax/5); break;
     default: break;
     }
 }
